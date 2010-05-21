@@ -111,6 +111,7 @@ jQuery(document).ready(function(){
 				Glee.toggleActivity(1);
 				if(value[0] != "?"
 					&& value[0] != "!"
+          && value[0] != "`"
 					&& value[0] != ":"
 					&& value[0] != '*')
 				{
@@ -177,6 +178,13 @@ jQuery(document).ready(function(){
 						Glee.nullMessage = "Nothing found for your selector.";
 						Glee.setSubText("Enter jQuery selector and press enter, at your own risk.", "msg");
 					}
+          else if(value[0] == '`') //bookmark
+          {
+            c = value.substring(1);
+        		//emptying the bookmarks array
+				  	this.bookmarks.splice(0,Glee.bookmarks.length);
+					  this.Chrome.isBookmark(c); //check if the text matches a bookmark
+          }
 					else if(value[0] == "!" && value.length > 1) //Searching through page commands
 					{
 						trimVal = value.split(" ")[0].substr(1);
