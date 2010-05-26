@@ -181,9 +181,10 @@ jQuery(document).ready(function(){
           else if(value[0] == '`') //bookmark
           {
             c = value.substring(1);
+
         		//emptying the bookmarks array
-				  	this.bookmarks.splice(0,Glee.bookmarks.length);
-					  this.Chrome.isBookmark(c); //check if the text matches a bookmark
+				  	Glee.bookmarks.splice(0,Glee.bookmarks.length);
+					  Glee.Chrome.isBookmark(c); //check if the text matches a bookmark
           }
 					else if(value[0] == "!" && value.length > 1) //Searching through page commands
 					{
